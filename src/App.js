@@ -12,14 +12,15 @@ import TablesEventsNew from './components/views/TablesEventsNew/TablesEventsNew'
 import Waiter from './components/views/Waiter/Waiter';
 import WaiterOrder from './components/views/WaiterOrder/WaiterOrder';
 import WaiterOrderNew from './components/views/WaiterOrderNew/WaiterOrderNew';
+import {StylesProvider} from '@material-ui/styles';
 
 
 
 
 function App() {
   return (
-    <div >
-      <BrowserRouter basename={'/panel'}>
+    <BrowserRouter basename={'/panel'}>
+      <StylesProvider >
         <MainLayout>
           <Switch>
             <Route exact path={`${process.env.PUBLIC_URL}/`} component={Homepage} />
@@ -35,8 +36,9 @@ function App() {
             <Route exact path={`${process.env.PUBLIC_URL}/waiter/order/new`} component={WaiterOrderNew} />
           </Switch>
         </MainLayout>
-      </BrowserRouter>
-    </div>
+      </StylesProvider>
+    </BrowserRouter>
+
   );
 }
 export default App;

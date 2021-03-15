@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import styles from './PageNav.module.scss';
 
+
 const PageNav = () => (
   <nav className={styles.component}>
     <Button className={styles.link} color="secondary" component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active'>Home</Button>
