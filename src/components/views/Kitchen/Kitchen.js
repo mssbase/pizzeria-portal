@@ -3,73 +3,90 @@ import styles from './Kitchen.module.scss';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {makeStyles} from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import {makeStyles} from '@material-ui/core/styles';
 
-
-
-
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+const demoContent = [
+  {order: 123, tableNumber: '1', onlineOrderNumber: '', dishes: 'Breakfast', amount: 3, options: 'spicy'},
+  {order: 234, tableNumber: '2', onlineOrderNumber: '', dishes: 'Salad', amount: 2, options: 'no salt'},
+  {order: 345, tableNumber: '', onlineOrderNumber: 'Delivery 1', dishes: 'Pizza', amount: 4, options: 'extra ketchup'},
 ];
+
+const renderActions = () => {
+  return (
+    <Button
+      variant="contained"
+      color="primary"
+    >
+      PREPARED
+    </Button>
+  );
+};
+
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
   paper: {
     padding: theme.spacing(4),
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
   },
+  content: {
+    flexGrow: 1,
+    overflow: 'auto',
+  },
+
 }));
 
 const Kitchen = () => {
   const classes = useStyles();
   return (
     <div className={classes.paper}>
-      <TableContainer component={Paper}>
-        <CssBaseline/>
-        <Table className={styles.component}>
+
+      <CssBaseline/>
+      <Paper className={classes.content}>
+        <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Dessert (100g serving)</TableCell>
-              <TableCell align="right">Calories</TableCell>
-              <TableCell align="right">Fat&nbsp;(g)</TableCell>
-              <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-              <TableCell align="right">Protein&nbsp;(g)</TableCell>
+              <TableCell>Order Number</TableCell>
+              <TableCell>Table Number <br></br>/ Delivery Order Number</TableCell>
+              <TableCell>Ordered Dishes</TableCell>
+              <TableCell>Dishes Amount</TableCell>
+              <TableCell>Dishes Options</TableCell>
+              <TableCell></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.name}>
+            {demoContent.map(row => (
+              <TableRow key={row.order}>
                 <TableCell component="th" scope="row">
-                  {row.name}
+                  {row.order}
                 </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
+                <TableCell>
+                  {row.tableNumber}{row.onlineOrderNumber}
+                </TableCell>
+                <TableCell>
+                  {row.dishes}
+                </TableCell>
+                <TableCell>
+                  {row.amount}
+                </TableCell>
+                <TableCell>
+                  {row.options}
+                </TableCell>
+                <TableCell>
+                  {renderActions(row.status)}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
-      </TableContainer>
+      </Paper>
     </div>
   );
 };
 
 export default Kitchen;
-

@@ -9,7 +9,7 @@ import TablesBooking from './components/views/TablesBooking/TablesBooking';
 import TablesBookingNew from './components/views/TablesBookingNew/TablesBookingNew';
 import TablesEvents from './components/views/TablesEvents/TablesEvents';
 import TablesEventsNew from './components/views/TablesEventsNew/TablesEventsNew';
-import Waiter from './components/views/Waiter/Waiter';
+import Waiter from './components/views/Waiter/WaiterContainer.js';
 import WaiterOrder from './components/views/WaiterOrder/WaiterOrder';
 import WaiterOrderNew from './components/views/WaiterOrderNew/WaiterOrderNew';
 import {StylesProvider, ThemeProvider} from '@material-ui/styles';

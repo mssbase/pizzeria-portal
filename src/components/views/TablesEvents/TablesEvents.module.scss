@@ -3,3 +3,9 @@
 .component {
   padding: $base-size;
 }
+.button {
+  max-width: 120px;
+  max-height: 30px;
+  min-width: 120px;
+  min-height: 30px;
+}

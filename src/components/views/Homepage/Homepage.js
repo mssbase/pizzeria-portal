@@ -7,6 +7,8 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Payments from '../Payments/Payments';
 import Orders from '../Orders/Orders';
+import Kitchen from '../Kitchen/Kitchen';
+import DailySales from '../DailySales/DailySales';
 
 
 
@@ -32,8 +34,15 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
     flexDirection: 'column',
   },
+  label: {
+    padding: theme.spacing(0),
+    display: 'flex',
+    overflow: 'auto',
+    flexDirection: 'column',
+    textAlign: 'center',
+  },
   fixedHeight: {
-    height: 240,
+    height: 340,
   },
 }));
 
@@ -49,12 +58,19 @@ const Homepage = () => {
           <Grid container spacing={3}>
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
+                <DailySales />
 
               </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <Payments/>
+              </Paper>
+            </Grid>
+            <Grid item xs={12}>
+              <Paper className={classes.label}>
+                <h1>Current Orders</h1>
+                <Kitchen />
               </Paper>
             </Grid>
             <Grid item xs={12}>

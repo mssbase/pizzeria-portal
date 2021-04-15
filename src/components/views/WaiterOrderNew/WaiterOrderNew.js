@@ -3,7 +3,7 @@ import styles from './WaiterOrderNew.module.scss';
 
 const WaiterOrderNew = () => (
   <div className={styles.component}>
-    <h2> Login view </h2>
+    <h2> NEW ORDER </h2>
   </div>
 );
 
